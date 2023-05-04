@@ -1,8 +1,10 @@
 <?php
 
 require_once './Models/Item.php';
-require_once './Models/ItemDogs.php';
-require_once './Models/ItemCats.php';
+require_once './Models/ItemAnimal.php';
+
+
+
 
 
 
@@ -16,7 +18,7 @@ require_once './Models/ItemCats.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pet Shop Products</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-FOV7TfTJXOY3COVBjK+/l8pJlRkcygMKa2j4aGx8s6enEcnXeBh6+0f6Kz1pwfybf1hL0p0o+EGxMjcjps/gIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
@@ -31,15 +33,33 @@ require_once './Models/ItemCats.php';
             bottom: 0;
             width: 100%;
             height: 56px;
+            z-index: 2;
+
         }
 
-        nav {
+        header {
             height: 60px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2;
         }
 
         main {
-            height: calc(100vh - 116px);
+            padding: 50px 0 100px 0;
+            overflow-y: hidden;
             background-color: #DCDCDC;
+            min-height: calc(100vh - 116px);
+
+        }
+
+        .__card {
+            width: calc(100% / 4 * 1 - (10px / 4 *3));
+            min-width: 150px;
+        }
+
+        .__my-ctn {
+            gap: 10px;
         }
     </style>
 
@@ -54,7 +74,7 @@ require_once './Models/ItemCats.php';
     </header>
     <main>
 
-        <div class="container py-4 __my-ctn">
+        <div class="d-flex flex-wrap container py-4 __my-ctn justify-content-center">
             <?php
             // Start the session
             session_start();
@@ -67,18 +87,11 @@ require_once './Models/ItemCats.php';
 
 
             foreach ($_SESSION['allItems'] as $index => $item) {
-                var_dump($item);
+                ItemAnimal::printCard($item);
             }
             ?>
 
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+
 
 
 
