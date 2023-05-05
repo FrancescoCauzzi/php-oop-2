@@ -5,6 +5,8 @@ require_once './Models/Item.php';
 // Include the db.php file
 require_once('db.php');
 
+
+
 function printCard($item)
 {
 
@@ -15,7 +17,7 @@ function printCard($item)
     echo   "<h5 class='card-title'>" . $item->getName() . "</h5>";
     echo        "<p class='card-text'>" . $item->getDescription() . "</p>";
     echo "<p><span><i class='fa-solid " . $item->getCategory()->getIcon() . "'></i></span><strong> " . $item->getPrice() . " €</strong></span></p>";
-    echo "<p><span><i>";
+    echo "<p>";
     switch (get_class($item)) {
 
         case 'Food':
@@ -30,7 +32,13 @@ function printCard($item)
             echo "<br>";
             break;
     };
-    echo "</i></span>";
+    echo "</p>";
+    if ($item->getDiscount()) {
+        echo "<p><strong>";
+        echo $item->getDiscount();
+        echo "% discount, limited offer!</strong>";
+    };
+    echo " </p>";
 
 
 

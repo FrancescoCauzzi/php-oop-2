@@ -3,6 +3,7 @@
 require_once __DIR__ . "/Models/Item.php";
 require_once __DIR__ . "/Models/Food.php";
 require_once __DIR__ . "/Models/Accessory.php";
+require_once __DIR__ . "/Traits/Discountable.php";
 
 $categories = [
     new Category("dog", "fa-dog"),
@@ -14,6 +15,14 @@ $categories = [
 ];
 
 $dogKibble = new Food("Dog Kibble", 55, 10.00, "https://medias.ultrapremiumdirect.com/italy/production/catalog/products/001005/1.jpg?tr=w-2000,h-2000&v=2118014580", "Best choice for your dog", $categories[0], 'Meat');
+
+try {
+    $dogKibble->setDiscount(30);
+    $dogKibble->setPrice($dogKibble->getPrice() - ($dogKibble->getPrice() / 100 * $dogKibble->getDiscount()));
+} catch (Exception $e) {
+
+    echo $e->getMessage();
+}
 
 $cannedCatMeat = new Food("Canned Meat for Cats", 44, 8.00, "https://shop-cdn-m.mediazs.com/bilder/whiskas/lattine/x/g/6/800/cans_12_1000x1000_6.jpg", "High quality meat for your cat", $categories[1], "Meat, seeds");
 
@@ -31,6 +40,14 @@ $fishFood = new Food("Fish Food", 32, 5.00, "https://encrypted-tbn0.gstatic.com/
 
 // Example 5
 $rabbitHutch = new Accessory("Rabbit Hutch", 12, 80.00, "https://images.thdstatic.com/productImages/01d019ca-a2bb-4d2e-8dc5-1a572d251665/svn/coziwow-beds-cages-cw12f0417-c3_600.jpg", "A spacious home for your rabbit", $categories[5], "Housing");
+
+try {
+    $rabbitHutch->setDiscount(30);
+    $rabbitHutch->setPrice($rabbitHutch->getPrice() - ($rabbitHutch->getPrice() / 100 * $rabbitHutch->getDiscount()));
+} catch (Exception $e) {
+
+    echo $e->getMessage();
+}
 
 // Example 6
 $birdSeed = new Food("Bird Seed", 48, 8.00, "https://images.heb.com/is/image/HEBGrocery/002023494-1", "Nutritious food for your bird", $categories[4], "Seeds");

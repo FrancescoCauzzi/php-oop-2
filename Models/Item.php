@@ -32,6 +32,10 @@ class Item
         return $this->description;
     }
 
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
     public function getPrice()
     {
         return $this->price;
