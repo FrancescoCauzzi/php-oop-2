@@ -1,7 +1,43 @@
 <?php
 
 require_once './Models/Item.php';
-require_once './Models/ItemAnimal.php';
+
+// Include the db.php file
+require_once('db.php');
+
+function printCard($item)
+{
+
+
+    echo "<div class='card __card' style='width: 18rem;'>";
+    echo "     <img src='" . $item->getImage() . "' class='card-img-top' alt='...'>";
+    echo  "<div class='card-body'>";
+    echo   "<h5 class='card-title'>" . $item->getName() . "</h5>";
+    echo        "<p class='card-text'>" . $item->getDescription() . "</p>";
+    echo "<p><span><i class='fa-solid " . $item->getCategory()->getIcon() . "'></i></span><strong> " . $item->getPrice() . " €</strong></span></p>";
+    echo "<p><span><i>";
+    switch (get_class($item)) {
+
+        case 'Food':
+            echo "Ingredients: " . $item->getIngredients();
+            break;
+
+        case 'Accessory':
+            echo "Utility: " .  $item->getAccessory();
+            break;
+
+        default:
+            echo "<br>";
+            break;
+    };
+    echo "</i></span>";
+
+
+
+    echo        "</div>";
+    echo      "</div>";
+};
+
 
 
 
@@ -79,18 +115,14 @@ require_once './Models/ItemAnimal.php';
             // Start the session
             session_start();
 
-            // Include the db.php file
-            require_once('db.php');
-
 
             $_SESSION['allItems'] = $allItems;
 
 
             foreach ($_SESSION['allItems'] as $index => $item) {
-                ItemAnimal::printCard($item);
-            }
+                printCard($item);
+            };
             ?>
-
 
 
 

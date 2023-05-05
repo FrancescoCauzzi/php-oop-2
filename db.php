@@ -1,26 +1,39 @@
 <?php
 
-$dogKibble = new ItemAnimal("Dog Kibble", 55, 10.00, 200, 34, "https://medias.ultrapremiumdirect.com/italy/production/catalog/products/001005/1.jpg?tr=w-2000,h-2000&v=2118014580", "Food", "Best choice for your dog", "Dogs", "<i class='fa-solid fa-dog'></i>");
+require_once __DIR__ . "/Models/Item.php";
+require_once __DIR__ . "/Models/Food.php";
+require_once __DIR__ . "/Models/Accessory.php";
 
-$cannedCatMeat = new ItemAnimal("Canned Meat for Cats", 44, 8.00, 150, 23, "https://shop-cdn-m.mediazs.com/bilder/whiskas/lattine/x/g/6/800/cans_12_1000x1000_6.jpg", "Food", "High quality meat for your cat", "Cats", "<i class='fa-solid fa-cat'></i>");
+$categories = [
+    new Category("dog", "fa-dog"),
+    new Category("cat", "fa-cat"),
+    new Category("fish", "fa-cat"),
+    new Category("hamster", "fa-mouse-field"),
+    new Category("bird", "fa-dove"),
+    new Category("rabbit", "fa-rabbit"),
+];
 
-// Example 1
-$hamsterCage = new ItemAnimal("Hamster Cage", 23, 30.00, 50, 15, "https://cdn.shopify.com/s/files/1/0437/8866/4988/products/1-0180017814_1200x1200.jpg?v=1665671735", "Housing", "A cozy home for your hamster", "Hamsters", "<i class='fa-solid fa-hamster'></i>");
+$dogKibble = new Food("Dog Kibble", 55, 10.00, "https://medias.ultrapremiumdirect.com/italy/production/catalog/products/001005/1.jpg?tr=w-2000,h-2000&v=2118014580", "Best choice for your dog", $categories[0], 'Meat');
 
-// Example 2
-$fleaShampoo = new ItemAnimal("Flea Shampoo", 77, 12.00, 100, 45, "https://assets.petco.com/petco/image/upload/f_auto,q_auto/1597949-center-1", "Grooming", "Get rid of fleas on your dog or cat", "Dogs, Cats", "<i class='fa-solid fa-bug'></i>");
+$cannedCatMeat = new Food("Canned Meat for Cats", 44, 8.00, "https://shop-cdn-m.mediazs.com/bilder/whiskas/lattine/x/g/6/800/cans_12_1000x1000_6.jpg", "High quality meat for your cat", $categories[1], "Meat, seeds");
 
-// Example 3
-$birdCage = new ItemAnimal("Bird Cage", 15, 25.00, 30, 10, "https://m.media-amazon.com/images/I/81vSey3QLrL.jpg", "Housing", "A comfortable home for your bird", "Birds", "<i class='fa-solid fa-dove'></i>");
+
+$hamsterCage = new Accessory("Hamster Cage", 23, 30.00, "https://cdn.shopify.com/s/files/1/0437/8866/4988/products/1-0180017814_1200x1200.jpg?v=1665671735",  "A cozy home for your hamster", $categories[3], "Housing");
+
+
+$fleaShampoo = new Accessory("Flea Shampoo", 77, 12.00, "https://assets.petco.com/petco/image/upload/f_auto,q_auto/1597949-center-1", "Get rid of fleas on your dog ", $categories[0], "Grooming");
+
+
+$birdCage = new Accessory("Bird Cage", 15, 25.00, "https://m.media-amazon.com/images/I/81vSey3QLrL.jpg", "A comfortable home for your bird", $categories[4], "Housing");
 
 // Example 4
-$fishFood = new ItemAnimal("Fish Food", 32, 5.00, 300, 50, "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSEz6OFrf_q6MZUOKRD4kk16j2c4FKXzPb30l5W8dCMa6qGMJOvRHV7OaL3zt4QwElGnvlKzBFOUxNyvuXyH4kIhlN6FCQaVkEx-Fp2epFGuFsAckOGgt5Dvg&usqp=CAE", "Food", "High quality food for your fish", "Fish", "<i class='fa-solid fa-fish'></i>");
+$fishFood = new Food("Fish Food", 32, 5.00, "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSEz6OFrf_q6MZUOKRD4kk16j2c4FKXzPb30l5W8dCMa6qGMJOvRHV7OaL3zt4QwElGnvlKzBFOUxNyvuXyH4kIhlN6FCQaVkEx-Fp2epFGuFsAckOGgt5Dvg&usqp=CAE", "High quality food for your fish", $categories[2], "Seeds, krill");
 
 // Example 5
-$rabbitHutch = new ItemAnimal("Rabbit Hutch", 12, 80.00, 20, 8, "https://images.thdstatic.com/productImages/01d019ca-a2bb-4d2e-8dc5-1a572d251665/svn/coziwow-beds-cages-cw12f0417-c3_600.jpg", "Housing", "A spacious home for your rabbit", "Rabbits", "<i class='fa-solid fa-rabbit'></i>");
+$rabbitHutch = new Accessory("Rabbit Hutch", 12, 80.00, "https://images.thdstatic.com/productImages/01d019ca-a2bb-4d2e-8dc5-1a572d251665/svn/coziwow-beds-cages-cw12f0417-c3_600.jpg", "A spacious home for your rabbit", $categories[5], "Housing");
 
 // Example 6
-$birdSeed = new ItemAnimal("Bird Seed", 48, 8.00, 200, 30, "https://images.heb.com/is/image/HEBGrocery/002023494-1", "Food", "Nutritious food for your bird", "Birds", "<i class='fa-solid fa-dove'></i>");
+$birdSeed = new Food("Bird Seed", 48, 8.00, "https://images.heb.com/is/image/HEBGrocery/002023494-1", "Nutritious food for your bird", $categories[4], "Seeds");
 
 
 $allItems = [$dogKibble, $cannedCatMeat, $hamsterCage, $fleaShampoo, $birdCage, $fishFood, $rabbitHutch, $birdSeed];
