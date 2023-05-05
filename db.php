@@ -1,8 +1,8 @@
 <?php
 
-$dogKibble55 = new ItemAnimal("Dog Kibble", 55, 10.00, 200, 34, "https://medias.ultrapremiumdirect.com/italy/production/catalog/products/001005/1.jpg?tr=w-2000,h-2000&v=2118014580", "Food", "Best choice for your dog", "Dogs", "<i class='fa-solid fa-dog'></i>");
+$dogKibble = new ItemAnimal("Dog Kibble", 55, 10.00, 200, 34, "https://medias.ultrapremiumdirect.com/italy/production/catalog/products/001005/1.jpg?tr=w-2000,h-2000&v=2118014580", "Food", "Best choice for your dog", "Dogs", "<i class='fa-solid fa-dog'></i>");
 
-$cannedCatMeat44 = new ItemAnimal("Canned Meat for Cats", 44, 8.00, 150, 23, "https://shop-cdn-m.mediazs.com/bilder/whiskas/lattine/x/g/6/800/cans_12_1000x1000_6.jpg", "Food", "High quality meat for your cat", "Cats", "<i class='fa-solid fa-cat'></i>");
+$cannedCatMeat = new ItemAnimal("Canned Meat for Cats", 44, 8.00, 150, 23, "https://shop-cdn-m.mediazs.com/bilder/whiskas/lattine/x/g/6/800/cans_12_1000x1000_6.jpg", "Food", "High quality meat for your cat", "Cats", "<i class='fa-solid fa-cat'></i>");
 
 // Example 1
 $hamsterCage = new ItemAnimal("Hamster Cage", 23, 30.00, 50, 15, "https://cdn.shopify.com/s/files/1/0437/8866/4988/products/1-0180017814_1200x1200.jpg?v=1665671735", "Housing", "A cozy home for your hamster", "Hamsters", "<i class='fa-solid fa-hamster'></i>");
@@ -23,4 +23,4 @@ $rabbitHutch = new ItemAnimal("Rabbit Hutch", 12, 80.00, 20, 8, "https://images.
 $birdSeed = new ItemAnimal("Bird Seed", 48, 8.00, 200, 30, "https://images.heb.com/is/image/HEBGrocery/002023494-1", "Food", "Nutritious food for your bird", "Birds", "<i class='fa-solid fa-dove'></i>");
 
 
-$allItems = [$dogKibble55, $cannedCatMeat44, $hamsterCage, $fleaShampoo, $birdCage, $fishFood, $rabbitHutch, $birdSeed];
+$allItems = [$dogKibble, $cannedCatMeat, $hamsterCage, $fleaShampoo, $birdCage, $fishFood, $rabbitHutch, $birdSeed];
